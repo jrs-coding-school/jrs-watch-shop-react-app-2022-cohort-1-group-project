@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  /* background-image: url("https://i.pinimg.com/originals/78/c2/5b/78c25b25bbb1bdd2aee59f187240252b.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: .9;
+}
+
+nav {
+  padding: 1rem;
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(72, 22, 22);
+  color: white;
+  font-size: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: 0.3s;
+}
+
+nav .left {
+  font-size: 1.25em;
+  margin-left: 1em;
+
+}
+
+nav .right {
+  font-size: 1.25em;
+  margin-right: 1em;
+
+}
+
+nav.right>login {
+  font-size: .5em;
+  margin-right: 1em;
+
+}
+
+
+
+nav .flex {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+/* links */
+nav a {
+  color: inherit;
+  text-decoration: unset;
+  margin-left: 0.25rem;
+
+}
+
+/* links hovered */
+nav a:hover {
+  background-color: white;
+  color: black;
+}
+
+/* currently viewed link */
+nav a:active {
+  background-color: yellow
+}
+
+input:focus {
+  background-color: rgb(229, 229, 84);
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    margin: 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  nav,
+  nav>div {
+    flex-direction: column;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 8px;
+  font-family: "Roboto", sans-serif;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: 0.3s;
+}
+
+
+nav a {
+  color: inherit;
+  text-decoration: unset;
+  margin-left: 0.25rem;
+}
+
+nav a {
+  padding: 0.25rem 0.5rem;
+  display: inline-block;
+  line-height: 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+}
+
+nav a:hover {
+  background-color: white;
+  color: black;
+}
+
+nav>div {
+  display: flex;
+}
+
+nav .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: red;
+  height: 0%;
+  width: 100%;
+  transition: 0.2s;
+}
+
+nav a:hover>.slide {
+  height: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    margin: 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  nav,
+  nav>div {
+    flex-direction: column;
+  }
+
+  nav.hidden>div *:not(span) {
+
+    width: 0;
+    opacity: 0;
+  }
+} */
