@@ -14,21 +14,24 @@ import ProductPage from './components/ProductPage';
 import SignUpPage from './components/login/SignUpPage';
 import OrderCheckOutPage from './components/OrderCheckOutPage';
 import OrderConfirmPage from './components/OrderConfirmPage';
+import { ToastProvider } from './services/toasts/toastService'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Nav />
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/login" element={<LogInPage />} />
-        <Route path="/product/:id" element={<ProductPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/checkout" element={<OrderCheckOutPage />} />
-        <Route path="/orderconfirm" element={<OrderConfirmPage />} />
-      </Routes>
-    </BrowserRouter>
+    <ToastProvider>
+      <BrowserRouter>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/login" element={<LogInPage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/checkout" element={<OrderCheckOutPage />} />
+          <Route path="/orderconfirm" element={<OrderConfirmPage />} />
+        </Routes>
+      </BrowserRouter>
+    </ToastProvider>
   </React.StrictMode>
 );
 
