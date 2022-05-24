@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ToastProvider } from './services/toasts/toastService'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ToastProvider>
+      <App />
+    </ToastProvider>
   </React.StrictMode>
 );
 
