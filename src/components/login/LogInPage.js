@@ -1,5 +1,6 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router';
+import { useApi } from '../../services/axios.service'
 import { Link } from 'react-router-dom';
 
 export default function LogInPage() {
@@ -21,6 +22,7 @@ function LogInForm() {
 
     const navigate = useNavigate();
     const animationTime = 300;
+    const http = useApi();
 
     const [user, setUser] = useState({
         email: '',
@@ -43,27 +45,25 @@ function LogInForm() {
     function handleSubmit(e) {
         e.preventDefault();
         if (user.email && user.password) {
+            http.login(user)
+                .then(res => {
+                    // 200 -> login successful
+                    // localStorageService.saveUser(res.data.user);
+                    // navigate(`/user/${res.data.user.id}`);
+                    navigate(`/`);
+                }).catch(err => {
+                    console.error(err)
 
-            // do something
-            // http.login(user)
-            //     .then(res => {
-            //         // 200 -> login successful
-            //         console.log(res.data.user)
-            //         localStorageService.saveUser(res.data.user);
-            //         navigate(`/user/${res.data.user.id}`);
-            //     }).catch(err => {
-            //         console.error(err)
+                    emailRef.current.classList.add("shake");
+                    passwordRef.current.classList.add("shake");
 
-            //         emailRef.current.classList.add("shake");
-            //         passwordRef.current.classList.add("shake");
+                    setUser({ email: '', password: '' });
 
-            //         setUser({ email: '', password: '' });
-
-            //         setTimeout(() => {
-            //             emailRef.current.classList.remove("shake");
-            //             passwordRef.current.classList.remove("shake");
-            //         }, animationTime);
-            //     });
+                    setTimeout(() => {
+                        emailRef.current.classList.remove("shake");
+                        passwordRef.current.classList.remove("shake");
+                    }, animationTime);
+                });
         }
     }
 

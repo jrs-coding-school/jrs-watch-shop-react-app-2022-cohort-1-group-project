@@ -1,28 +1,21 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { createContext } from 'react';
-import { Context } from '../../App';
-
-// export const Context = createContext();
+import { useApi } from '../../services/axios.service'
 
 export default function SignUpPage() {
 
-    const c = useContext(Context);
     const navigate = useNavigate();
-
+    const http = useApi();
 
     function attemptSignUp(user) {
-        // http.createNewUser(user)
-        //     .then(res => {
-        //         // do something
-        //         console.log(res)
-        //         const user = res.data.user;
-        //         console.log(user);
-        //         localStorageService.saveUser(user);
-        //         navigate(`/user/${user.id}`);
-        //     }).catch(err => {
-        //         console.error(err);
-        //     });
+        http.createNewUser(user)
+            .then(res => {
+                const user = res.data.user;
+                // localStorageService.saveUser(user);
+                navigate(`/user/${user.id}`);
+            }).catch(err => {
+                console.error(err);
+            });
     }
 
     return (
@@ -62,27 +55,6 @@ function SignUpForm({ onSubmit }) {
             onSubmit(user);
         }
     }
-
-    useEffect(() => {
-        // http.getUserByEmail(user.email)
-        //     .then(res => {
-        //         // never happens
-        //         // login will always fail due to buisness logic
-        //     }).catch(err => {
-        //         console.log(err, err.response)
-        //         if (err.response.status == 404) {
-        //             // no user found
-        //             console.log("no user found")
-        //             setIsEmailTaken(false);
-        //         } else if (err.response.status == 401) {
-        //             // user exists
-        //             console.log("email taken")
-        //             setIsEmailTaken(true);
-        //         } else {
-        //             console.error(err);
-        //         }
-        //     });
-    }, [user.email]);
 
     return (
         <form onSubmit={handleSubmit}>
