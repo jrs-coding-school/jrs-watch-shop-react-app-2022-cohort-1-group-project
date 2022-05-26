@@ -5,7 +5,7 @@ import LogInPage from './components/login/LogInPage';
 import SignUpPage from './components/login/SignUpPage';
 // import UserPage from './components/UserPage';
 import { createContext, useEffect, useState } from 'react';
-import ProductCard from '../src/productCard/ProductCard';
+import ProductCard from './components/productCard/ProductCard';
 import { useApi } from './services/axios.service';
 import { useLocalStorage } from './services/localStorage.service';
 
@@ -17,7 +17,6 @@ function App() {
   const [watches, setWatches] = useState([])
   const ls = useLocalStorage();
   let user = ls.getUser();
-
 
   const http = useApi();
 
