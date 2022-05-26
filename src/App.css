@@ -1,3 +1,13 @@
 .App {
+
+  overflow: auto;
+  background-color: #f0f2f4;
   text-align: center;
+  
+}
+
+.products-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
 }

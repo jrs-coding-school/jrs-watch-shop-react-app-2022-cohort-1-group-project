@@ -19,24 +19,23 @@ function getWatchesByStyle(style) {
     return axios.get(`${URL}/watches/style/${style}`);
 }
 
-function getWatchesByBrand (brand) {
+function getWatchesByBrand(brand) {
     return axios.get(`${URL}/watches/brand/${brand}`);
 }
 
-function getWatchesByRating (rating) {
-    return axios.get(`${URL}/watches/rating${rating}`);
+function getWatchesByRating(rating) {
+    return axios.get(`${URL}/watches/rating/${rating}`);
 }
 
-// user specific service functions
-function login (user) {
+function login(user) {
     return axios.post(`${URL}/users/login`, user);
 }
 
-function createNewUser (user) {
+function createNewUser(user) {
     return axios.post(`${URL}/users`, user);
 }
 
-function getUserByEmail (email) {
+function getUserByEmail(email) {
     return this.login({ email, password: '' });
 }
 
@@ -65,6 +64,16 @@ function createTransaction(transactions) {
     return axios.post(`${URL}/transactions`, transactions);
 }
 
+function updateUser(user) {
+    return axios.put(`${URL}/users/${user.id}`, user);
+}
+
+function getWatchesByQuery(params) {
+
+    const queryString = new URLSearchParams(params).toString();
+
+    return axios.get(`${URL}/watches/search?` + queryString);
+}
 
 const api = {
     getAllWatches,
@@ -81,7 +90,8 @@ const api = {
     getUserShoppingCartById,
     getAllTransactionsByUserId,
     createTransaction,
-    deleteUserById
+    deleteUserById,
+    getWatchesByQuery
 }
 
 function useApi() {

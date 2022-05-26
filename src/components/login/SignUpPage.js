@@ -12,7 +12,7 @@ export default function SignUpPage() {
             .then(res => {
                 const user = res.data.user;
                 // localStorageService.saveUser(user);
-                navigate(`/user/${user.id}`);
+                navigate(`/`);
             }).catch(err => {
                 console.error(err);
             });
