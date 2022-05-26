@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import './Nav.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import Search from './Search'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Nav() {
 
@@ -28,10 +29,7 @@ export default function Nav() {
 
             </div>
             <div className="search-container">
-                <form >
-                    <input type="text" placeholder="Search & Shop" name="search" />
-                    <button type="submit"> <FontAwesomeIcon icon={faMagnifyingGlass} /><i className="fa fa-search"></i></button>
-                </form>
+                <Search />
             </div>
             <div className='flex right '>
                 <Link to="login">

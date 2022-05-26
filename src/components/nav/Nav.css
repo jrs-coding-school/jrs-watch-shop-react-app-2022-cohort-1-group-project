@@ -66,11 +66,7 @@ nav a:active {
   background-color: yellow
 }
 
-input:focus {
-  background-color: rgb(229, 229, 84);
-}
-
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   nav {
     margin: 0;
     position: fixed;
@@ -86,7 +82,15 @@ input:focus {
     flex-direction: column;
   }
 
-}
+} */
+
+
+
+
+
+
+
+
 
 
 
