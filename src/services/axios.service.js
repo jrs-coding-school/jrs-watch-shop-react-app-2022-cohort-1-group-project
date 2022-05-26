@@ -1,11 +1,13 @@
 const axios = require('axios');
 const URL = `http://localhost:8080/api`
 
+
+// product specific service functions
 function getAllWatches() {
     return axios.get(`${URL}/watches`);
 }
 
-function getWatchesById(id) {
+function getWatchById(id) {
     return axios.get(`${URL}/watches/${id}`);
 }
 
@@ -22,11 +24,10 @@ function getWatchesByBrand (brand) {
 }
 
 function getWatchesByRating (rating) {
-    return axios.get(`${URL}/watches//rating${rating}`);
+    return axios.get(`${URL}/watches/rating${rating}`);
 }
 
-
-
+// user specific service functions
 function login (user) {
     return axios.post(`${URL}/users/login`, user);
 }
@@ -39,8 +40,29 @@ function getUserByEmail (email) {
     return this.login({ email, password: '' });
 }
 
+function getUserShoppingCartById (customerId) {
+    return axios.get(`${URL}/carts/${customerId}`);
+}
+
+function getAllTransactionsByUserId(userId) {
+    return axios.get(`${URL}/transactions/${userId}`);
+}
+
 function updateUser  (user) {
     return axios.put(`${URL}/users/${user.id}`, user);
+}
+
+function deleteUserById(id) {
+    return axios.delete(`${URL}/users/${id}`);
+}
+
+// cart/transaction specific service functions
+function addItemToCart(carts) {
+    return axios.post(`${URL}/carts`, carts);
+}
+
+function createTransaction(transactions) {
+    return axios.post(`${URL}/transactions`, transactions);
 }
 
 
@@ -54,8 +76,12 @@ const api = {
     login,
     createNewUser,
     getUserByEmail,
-    updateUser
-
+    updateUser,
+    addItemToCart,
+    getUserShoppingCartById,
+    getAllTransactionsByUserId,
+    createTransaction,
+    deleteUserById
 }
 
 function useApi() {
