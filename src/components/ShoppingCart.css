@@ -1,0 +1,111 @@
+.shopping-cart-root .cart-header {
+    text-align: center;
+    margin-top: 0;
+    padding-top: 2em;
+}
+
+.shopping-cart-root .cart-container {
+    /* border: solid black 3px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 100vh;
+    width: 98vw;
+    margin: auto;
+
+}
+
+.shopping-cart-root .cart-summary-container {
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    border: solid #c5c0c0 .2px;
+    border-radius: 4px;
+    text-align: left;
+    width: 35%;
+    height: fit-content;
+    padding: 1em;
+    text-align: center;
+    background-color: white;
+
+
+}
+
+.shopping-cart-root .cart-summary-container .checkout-btn {
+    background-color: #ffe000;
+    color: black;
+   font-size: 1em;
+    width: 10em;
+    height: 2.5em;
+    border-radius: 6px;
+    border: none;
+    margin: auto;
+}
+
+.shopping-cart-root .item-row-container {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    padding: 1em;
+    
+}
+
+.shopping-cart-root .item-row-container button {
+
+    width: 2em;
+    height: 2em;
+    margin-right: .5em;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(72, 22, 22);
+    color: white;
+    font-size: medium;
+}
+
+
+
+
+.shopping-cart-root .item-row-container .item-quantity {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.shopping-cart-root .shopping-cart-items {
+    border: solid #c5c0c0 .2px;
+    border-radius: 4px;
+
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+    height: fit-content;
+    width: 25em;
+
+}
+
+.shopping-cart-root .cart-summary-container>div {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+}
+
+.shopping-cart-root .cart-summary-container .total-cost {
+    border-top: solid #c5c0c0 1px;
+}
+
+.shopping-cart-root .cart-summary-container .summary-header {
+    border-bottom: solid #c5c0c0 1px;
+    font-size: large;
+    margin-top: .5em;
+    padding-bottom: 1em;
+    margin-bottom: 0;
+}
