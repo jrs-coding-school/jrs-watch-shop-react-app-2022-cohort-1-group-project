@@ -56,17 +56,17 @@ function deleteUserById(id) {
 }
 
 // cart/transaction specific service functions
-function addItemToCart(carts) {
-    return axios.post(`${URL}/carts`, carts);
+function addItemToCart(userId, item) {
+    return axios.post(`${URL}/carts`, {userId, item});
 }
 
 function createTransaction(transactions) {
     return axios.post(`${URL}/transactions`, transactions);
 }
 
-function updateUser(user) {
-    return axios.put(`${URL}/users/${user.id}`, user);
-}
+// function updateUser(user) {
+//     return axios.put(`${URL}/users/${user.id}`, user);
+// }
 
 function getWatchesByQuery(params) {
 
@@ -77,7 +77,7 @@ function getWatchesByQuery(params) {
 
 const api = {
     getAllWatches,
-    getWatchesById,
+    getWatchById,
     getWatchesByColor,
     getWatchesByStyle,
     getWatchesByBrand,

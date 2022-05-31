@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router';
 import { useApi } from '../../services/axios.service'
 import { Link } from 'react-router-dom';
+import { useLocalStorage } from '../../services/localStorage.service';
+import  '../login/LogInPage.css'
 
 export default function LogInPage() {
 
@@ -31,6 +33,7 @@ function LogInForm() {
 
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
+    const localStorageService = useLocalStorage();
 
     function handleChange(e) {
         var name = e.target.name;
@@ -48,7 +51,8 @@ function LogInForm() {
             http.login(user)
                 .then(res => {
                     // 200 -> login successful
-                    // localStorageService.saveUser(res.data.user);
+                    console.log(res);
+                    localStorageService.saveUser(res.data.user);
                     // navigate(`/user/${res.data.user.id}`);
                     navigate(`/`);
                 }).catch(err => {
@@ -69,7 +73,7 @@ function LogInForm() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>Email:</label>
+            <label className='label'>Email:</label>
             <input type="text"
                 ref={emailRef}
                 name="email"
@@ -78,7 +82,7 @@ function LogInForm() {
                 onChange={handleChange} />
             <br />
 
-            <label>Password:</label>
+            <label className='label'>Password:</label>
             <input type="password"
                 ref={passwordRef}
                 name="password"

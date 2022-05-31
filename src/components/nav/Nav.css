@@ -66,133 +66,21 @@ nav a:active {
   background-color: yellow
 }
 
-/* @media screen and (max-width: 600px) {
-  nav {
-    margin: 0;
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
+.nav-bar-right {
+  margin-left: 35em;
 
-  nav,
-  nav>div {
-    flex-direction: column;
-  }
-
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-
-html,
-body {
-  margin: 0;
-  padding: 0;
 }
 
-nav {
-  padding: 5px;
-  margin: 5px;
-  border-radius: 8px;
-  font-family: "Roboto", sans-serif;
-  background-color: black;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  transition: 0.3s;
-}
-
-
-nav a {
-  color: inherit;
-  text-decoration: unset;
-  margin-left: 0.25rem;
-}
-
-nav a {
-  padding: 0.25rem 0.5rem;
-  display: inline-block;
-  line-height: 1rem;
-  border-radius: 3px;
+.loginButton {
+  border-radius: 10px;
+ 
   cursor: pointer;
-  transition: 0.3s;
-  position: relative;
 }
 
-nav a:hover {
-  background-color: white;
-  color: black;
+.logoutButton {
+  /* border-radius: 50%;
+  height: 50px; */
+  cursor: pointer;
+  
 }
 
-nav>div {
-  display: flex;
-}
-
-nav .slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: red;
-  height: 0%;
-  width: 100%;
-  transition: 0.2s;
-}
-
-nav a:hover>.slide {
-  height: 100%;
-}
-
-@media screen and (max-width: 600px) {
-  nav {
-    margin: 0;
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-
-  nav,
-  nav>div {
-    flex-direction: column;
-  }
-
-  nav.hidden>div *:not(span) {
-
-    width: 0;
-    opacity: 0;
-  }
-} */

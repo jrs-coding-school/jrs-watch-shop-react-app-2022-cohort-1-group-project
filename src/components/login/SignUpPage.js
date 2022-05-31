@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useApi } from '../../services/axios.service'
+import './SignUpPage.css'
 
 export default function SignUpPage() {
 
@@ -57,6 +58,7 @@ function SignUpForm({ onSubmit }) {
     }
 
     return (
+        
         <form onSubmit={handleSubmit}>
             <div className="email">
                 {isEmailTaken && <div className="error-message">* Email is already taken *</div>}
