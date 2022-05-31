@@ -30,7 +30,7 @@ root.render(
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/checkout" element={<OrderCheckOutPage />} />
           <Route path="/carts" element={<ShoppingCart />} />
-          <Route path="/orderconfirm" element={<OrderConfirmPage />} />
+          <Route path="/orderconfirm/:transactionId" element={<OrderConfirmPage />} />
           <Route path="*" element={<div>404 - That Page Does Not Exist</div>} />
         </Routes>
       </BrowserRouter>
