@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import { useApi } from '../../services/axios.service'
 import { Link } from 'react-router-dom';
 import { useLocalStorage } from '../../services/localStorage.service';
+import  '../login/LogInPage.css'
 
 export default function LogInPage() {
 
@@ -69,7 +70,7 @@ function LogInForm() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>Email:</label>
+            <label className='label'>Email:</label>
             <input type="text"
                 ref={emailRef}
                 name="email"
@@ -78,7 +79,7 @@ function LogInForm() {
                 onChange={handleChange} />
             <br />
 
-            <label>Password:</label>
+            <label className='label'>Password:</label>
             <input type="password"
                 ref={passwordRef}
                 name="password"

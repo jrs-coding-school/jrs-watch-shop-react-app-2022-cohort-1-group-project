@@ -15,7 +15,8 @@ import SignUpPage from './components/login/SignUpPage';
 import OrderCheckOutPage from './components/OrderCheckOutPage';
 import OrderConfirmPage from './components/OrderConfirmPage';
 import { ToastProvider } from './services/toasts/toastService'
-import ShoppingCart from './components/ShoppingCart';
+import ShoppingCart from './components/ShoppingCart'
+import Homepage from './components/Homepage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,7 +25,8 @@ root.render(
       <BrowserRouter>
         <Nav />
         <Routes>
-          <Route path="/" element={<App />} />
+          <Route path="/" element={<Homepage />} />
+          <Route path="/products" element={<App />} />
           <Route path="/login" element={<LogInPage />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/signup" element={<SignUpPage />} />
