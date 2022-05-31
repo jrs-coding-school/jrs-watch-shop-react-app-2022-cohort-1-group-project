@@ -5,6 +5,7 @@
     padding: 1rem;
     border-radius: 0.5rem;
     background-color: lightgray;
+    
 }
 
 .login-form label {
@@ -27,4 +28,9 @@
     font: inherit;
     padding: 0.25rem 1rem;
     border-radius: 5px;
+}
+
+.label  {
+    color: whitesmoke;
+    background-color: rgb(72, 22, 22);
 }

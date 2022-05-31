@@ -42,7 +42,9 @@ function App() {
   // use effect => get data
 
   return (
+    
     <div className="App">
+      <h1 className='header'>Check out These Beautiful Time-Pieces! </h1>
 
       <div className='products-container'>
 

@@ -3,7 +3,7 @@ import './productCard.css'
 import { useApi } from '../../services/axios.service'
 import { useLocalStorage } from '../../services/localStorage.service';
 
-export default function ProductCard({ id, name, price, brand, color, style, description, image, rating, customer_id, product_id }) {
+export default function ProductCard({ id, name, price, brand, color, style, description, image, rating, quantity }) {
 
     const http = useApi();
     const ls = useLocalStorage();
@@ -12,8 +12,11 @@ export default function ProductCard({ id, name, price, brand, color, style, desc
     console.log(image)
 
     function addItemToCart() {
-        if (user.id && id) {
-            http.addItemToCart(user.id, id)
+        if (user) {
+            http.addItemToCart(user.id, {
+                id,
+                price
+            } )
                 .then(results => {
                     console.log(results);
                     // maybe make a little toast message or something
@@ -21,11 +24,15 @@ export default function ProductCard({ id, name, price, brand, color, style, desc
                 .catch(error => {
                     console.log(error.response)
                 });
+        } else{
+            console.log('no user')
         }
     }
 
     return (
+        <div>
         <div className='product-card'>
+            
             <img className='image' src={image} />
             <div className='product-info'>
                 <h4 className='product-name'>{name}</h4>
@@ -36,6 +43,7 @@ export default function ProductCard({ id, name, price, brand, color, style, desc
                     <span> Add to Cart</span>
                 </button>
             </div>
+        </div>
         </div>
     )
 }

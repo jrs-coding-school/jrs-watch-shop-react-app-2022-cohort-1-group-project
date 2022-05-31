@@ -64,8 +64,8 @@ function deleteUserById(id) {
 }
 
 // cart/transaction specific service functions
-function addItemToCart(carts) {
-    return axios.post(`${URL}/carts`, carts);
+function addItemToCart(userId, item) {
+    return axios.post(`${URL}/carts`, { userId, item });
 }
 
 function createTransaction(transactions) {
