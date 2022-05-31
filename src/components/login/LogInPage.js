@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router';
 import { useApi } from '../../services/axios.service'
 import { Link } from 'react-router-dom';
+import { useLocalStorage } from '../../services/localStorage.service';
 
 export default function LogInPage() {
 
@@ -23,6 +24,7 @@ function LogInForm() {
     const navigate = useNavigate();
     const animationTime = 300;
     const http = useApi();
+    const localStorageService = useLocalStorage()
 
     const [user, setUser] = useState({
         email: '',
@@ -47,9 +49,7 @@ function LogInForm() {
         if (user.email && user.password) {
             http.login(user)
                 .then(res => {
-                    // 200 -> login successful
-                    // localStorageService.saveUser(res.data.user);
-                    // navigate(`/user/${res.data.user.id}`);
+                    localStorageService.saveUser(res.data.user);
                     navigate(`/`);
                 }).catch(err => {
                     console.error(err)

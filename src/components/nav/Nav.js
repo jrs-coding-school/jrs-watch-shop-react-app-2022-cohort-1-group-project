@@ -38,7 +38,7 @@ export default function Nav() {
                     </div>
                 </Link>
 
-                <Link to="checkout">
+                <Link to="cart">
                     <div className="checkout">
                         <FontAwesomeIcon icon={faShoppingCart} />
                     </div>

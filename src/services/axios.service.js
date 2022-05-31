@@ -60,12 +60,8 @@ function addItemToCart(carts) {
     return axios.post(`${URL}/carts`, carts);
 }
 
-function createTransaction(transactions) {
-    return axios.post(`${URL}/transactions`, transactions);
-}
-
-function updateUser(user) {
-    return axios.put(`${URL}/users/${user.id}`, user);
+function createTransaction(userId, total, products, quantity) {
+    return axios.post(`${URL}/transactions`, {userId, total, products, quantity});
 }
 
 function getWatchesByQuery(params) {
@@ -77,7 +73,7 @@ function getWatchesByQuery(params) {
 
 const api = {
     getAllWatches,
-    getWatchesById,
+    getWatchById,
     getWatchesByColor,
     getWatchesByStyle,
     getWatchesByBrand,
