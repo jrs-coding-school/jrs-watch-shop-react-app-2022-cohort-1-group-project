@@ -1,3 +1,8 @@
+.shopping-cart-root {
+    background-color: #c5c0c0;
+    
+}
+
 .shopping-cart-root .cart-header {
     text-align: center;
     margin-top: 0;
@@ -28,14 +33,16 @@
     padding: 1em;
     text-align: center;
     background-color: white;
+    
 
 
 }
 
+/* checkout button style */
 .shopping-cart-root .cart-summary-container .checkout-btn {
     background-color: #ffe000;
     color: black;
-   font-size: 1em;
+    font-size: 1em;
     width: 10em;
     height: 2.5em;
     border-radius: 6px;
@@ -43,19 +50,28 @@
     margin: auto;
 }
 
+/* checkout button active */
+.shopping-cart-root .cart-summary-container .checkout-btn:active {
+    background-color: rgb(72, 22, 22);
+    color: white;
+
+}
+
 .shopping-cart-root .item-row-container {
-    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: fit-content;
+    width: 20em;
     padding: 1em;
+    background-color: white;
     
+
 }
 
+/* quanitity buttons style */
 .shopping-cart-root .item-row-container button {
-
     width: 2em;
     height: 2em;
     margin-right: .5em;
@@ -66,8 +82,12 @@
     font-size: medium;
 }
 
+/* quantity buttons active */
+.shopping-cart-root .item-row-container button:active {
+    background-color: #ffe000;
+    color: black;
 
-
+}
 
 .shopping-cart-root .item-row-container .item-quantity {
     display: flex;
@@ -75,8 +95,8 @@
     text-align: center;
 }
 
-.shopping-cart-root .shopping-cart-items {
-    border: solid #c5c0c0 .2px;
+.shopping-cart-root .cart-container .shopping-cart-items {
+    border: solid #c5c0c0 .5px;
     border-radius: 4px;
 
     background-color: white;
@@ -90,12 +110,9 @@
 }
 
 .shopping-cart-root .cart-summary-container>div {
-    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
-
 }
 
 .shopping-cart-root .cart-summary-container .total-cost {
@@ -108,4 +125,18 @@
     margin-top: .5em;
     padding-bottom: 1em;
     margin-bottom: 0;
+}
+
+.shopping-cart-root .empty-cart {
+    text-align: center;
+    font-size: larger;
+
+    margin: auto;
+    line-height: 5em;
+    width: 90%;
+    height: 5em;
+    border-radius: 8px;
+
+    background-color: rgb(72, 22, 22);
+    color: white;
 }

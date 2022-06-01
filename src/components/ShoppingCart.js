@@ -1,86 +1,120 @@
-import React, { useState } from 'react'
+import { useApi } from '../services/axios.service'
+import { Link, useNavigate } from "react-router-dom";
 import './ShoppingCart.css'
+import { useEffect, useState } from 'react';
+import { useLocalStorage } from '../services/localStorage.service';
+
+export default function ShoppingCart() {
 
 
-export default function ShoppingCart({ items }) {
+    const http = useApi();
+    const ls = useLocalStorage();
+    const navigate = useNavigate();
 
-    let subTotal = calculateTotalPrice(items);
+    const [cartItems, setCartItems] = useState([]);
+    const [quantity, setQuantity] = useState(1);
+
+    let user = ls.getUser();
+
+    let subTotal = calculateTotalPrice(cartItems);
     const tax = .07 * subTotal;
     const shipping = 15.00;
     const grandTotal = subTotal + tax + shipping;
 
+    function getUserShoppingCart() {
+        if (user) {
+            console.log('logged in', user);
+            http.getUserShoppingCartById(user.id)
+                .then((response) => {
+                    console.log(response)
+                    setCartItems(response?.data?.watches);
+                })
+                .catch(() => {
+                    console.log("error getting shopping cart")
+                })
+        } else {
+            console.log('not logged in');
+        }
+    }
 
-    // const [cartItems, setCartItems] = useState([])
+    function onDecrease() {
+        http.onQtyDecrease()
+            .then((response) => {
+                console.log(response)
+                setQuantity(response?.data?.quantity)
+            })
+            .catch(() => {
+                console.log("error reducing quantity")
+            })
 
-    // const onRemove = (product) => {
-    //     const exist = items.find((x) => x.id === product.id);
-    //     if (exist.quantity === 1) {
-    //         setCartItems(
-    //             cartItems.filter((x) => x.id !== product.id)
-    //         )
-    //     } else {
-    //         setCartItems(
-    //             cartItems.map((x) =>
-    //                 x.id === product.id ? { ...exist, quantity: exist.quantity - 1 } : x
-    //             )
-    //         )
-    //     }
-    // };
+    }
 
-    // const onAdd = (product) => {
-    //     const exist = cartItems.find((x) => x.id === product.id);
-    //     if (exist) {
-    //         setCartItems(
-    //             cartItems.map((x) =>
-    //                 x.id === product.id ? { ...exist, quantity: exist.quantity + 1 } : x
-    //             )
-    //         );
-    //     } else {
-    //         setCartItems([...cartItems, { ...product, quantity: 1 }]);
-    //     }
-    // };
+    function onIncrease() {
+        // http.onQtyIncrease()
+        //     .then(() => {
+        //         // console.log(response)
+        //         setQuantity(response?.data?.quantity)
+        //     })
+        //     .catch(() => {
+        //         console.log("error increasing quantity")
+        //     })
+    }
 
-    function calculateTotalPrice(items) {
+    function calculateTotalPrice(cartItems) {
         let sum = 0;
         // calculate sum of individual price of every item
 
-        for (let i = 0; i < items.length; i++) {
-            sum += items[i]?.price * items[i]?.quantity;
+        for (let i = 0; i < cartItems.length; i++) {
+            sum += cartItems[i]?.price * cartItems[i]?.quantity;
         }
 
         return sum;
     }
 
-    function calculateIndividualPrice(items) {
-        let sum = 0;
-        // calculate sum of individual price of every item
+    function handleCheckout() {
+        http.createTransaction(user.id, grandTotal, cartItems)
+            .then(res => {
+                console.log(res);
+                const cartItems = res.data;
+                console.log('cartItems purchased successfully');
+                console.log(cartItems);
+                navigate('/orderconfirm')
+            }).catch(err => {
+                console.log(err);
+            })
 
-        sum += items?.price * items?.quantity;
-
-        return sum;
     }
 
+    useEffect(() => {
+        setCartItems();
+        getUserShoppingCart();
+    }, []);
+
     return (
-        <div className="shopping-cart-root">
+        <div className="shopping-cart-root"
+            onSubmit={handleCheckout}>
             <h2 className="cart-header">Shopping Cart</h2>
             <div>
-                {items?.length === 0 && <div>Cart Is Empty</div>}
+                {cartItems?.length === 0 &&
+                    <div className="empty-cart">
+                        Cart Is Empty
+                    </div>}
             </div>
             <div className="cart-container">
 
 
-                <div className="shopping-cart-items">
-                    {items.map((item) => (
+                <div className="shopping-cart-cartItems">
+                    {cartItems.map((item) => (
                         <CartItem key={item?.id}
                             price={item?.price}
                             quantity={item?.quantity}
                             name={item?.name}
-                        // onAdd={onAdd}
-                        // onRemove={onRemove}
+                            onIncrease={onIncrease}
+                            onDecrease={onDecrease}
                         />
                     ))}
                 </div>
-                {items?.length !== 0 && (
+                {cartItems?.length !== 0 && (
                     <div className="cart-summary-container">
                         <h4 className="summary-header">Order Summary</h4>
                         <div>
@@ -101,7 +135,7 @@ export default function ShoppingCart({ items }) {
 
                         </div>
                         <div>
-                            <button onClick={() => alert('Implement checkout')}
+                            <button type="submit" onClick={handleCheckout}
                                 className="checkout-btn"
                             >
                                 Checkout
@@ -114,7 +148,7 @@ export default function ShoppingCart({ items }) {
     )
 }
 
-function CartItem({ id, name, price, quantity, onAdd, onRemove }) {
+function CartItem({ id, name, price, quantity, onIncrease, onDecrease }) {
 
     return (
         <div key={id} className="item-row-container">
@@ -125,12 +159,12 @@ function CartItem({ id, name, price, quantity, onAdd, onRemove }) {
             </div>
             <div className="quantity-btn">
                 <button
-                    // onClick={() => onAdd(items)} 
+                    onClick={() => { onIncrease() }}
                     className="add">
                     +
                 </button>
                 <button
-                    // onClick={() => onRemove(items)}
+                    onClick={() => { onDecrease() }}
                     className="remove">
                     -
                 </button>
