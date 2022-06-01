@@ -86,7 +86,7 @@ export default function ShoppingCart() {
     }
 
     useEffect(() => {
-        setCartItems();
+        // setCartItems()
         getUserShoppingCart();
     }, []);
 
