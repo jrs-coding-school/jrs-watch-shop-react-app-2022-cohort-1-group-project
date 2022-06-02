@@ -79,12 +79,16 @@ export default function OrderConfirmPage() {
                             day: 'numeric'
                         }) : ''}
                     </div>
+                    <p>${order?.total?.toFixed(2)}</p>
+                    <p>`${order?.color}`</p>
+
                 </div>
 
                 {items.map((item) => (
                     <div className="order-detail-root "
                         key={item.id}>
                         <div className="order-display">
+
                             <div className="product-image-frame">
                                 <img src={item.image} />
 
@@ -100,7 +104,8 @@ export default function OrderConfirmPage() {
                                 <div className="order-display-name"> Name: {item.name} </div>
                                 <div className="order-display-color"> Color: {item.color} </div>
                                 <div className="order-display-quantity"> Qty: {item.quantity} </div>
-                                <div className="order-display-total"> Total Price: ${item.total} </div>
+                                {/* <div className="order-display-total"> Total Price: ${item.total} </div> */}
+
                             </div>
 
                         </div>
