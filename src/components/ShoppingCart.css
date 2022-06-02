@@ -21,7 +21,7 @@
 }
 
 .shopping-cart-root .cart-summary-container {
-    position: sticky;
+
     display: flex;
     flex-direction: column;
     gap: 1.5em;
