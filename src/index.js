@@ -16,6 +16,7 @@ import OrderConfirmPage from './components/OrderConfirmPage';
 import { ToastProvider } from './services/toasts/toastService'
 import ShoppingCart from './components/ShoppingCart'
 import Homepage from './components/Homepage';
+import PastOrders from './components/PastOrders';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -31,6 +32,7 @@ root.render(
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/cart" element={<ShoppingCart />} />
           <Route path="/orderconfirm/:transactionId" element={<OrderConfirmPage />} />
+          <Route path="/transactions" element={<PastOrders />} />
           <Route path="*" element={<div>404 - That Page Does Not Exist</div>} />
         </Routes>
       </BrowserRouter>

@@ -67,6 +67,11 @@ export default function Nav() {
                         Products
                     </div>
                 </Link>
+                <Link to="/transactions">
+                    <div className='past-orders'>
+                        Past Orders
+                    </div>
+                </Link>
 
 
 
