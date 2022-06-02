@@ -1,49 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 body {
-  margin: 0;  
+  margin: 0;
   padding: 0;
   background-image: url("https://images.unsplash.com/photo-1511370235399-1802cae1d32f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=855&q=80");
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: .9;
-  
 }
 
 
+.home-root {
 
-.home {
-    position: relative;
+  display: flexbox;
+  flex-direction: row;
+  text-align: center;
+  margin: center;
+  margin-top: 25vh;
+}
+
+.shop-welcome {
+  position: relative;
   text-align: center;
   color: rgb(245, 229, 229);
-  padding: 2vh;
-  margin-top: 20vh;
-  font-size: 35pt;
-  margin-right: 150vh;
-  
-  width: 600px;
-  
+  font-size: 30pt;
+  font-weight: 900;
+
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 16px rgba(69, 69, 69, 0.594);
+
+
 }
 
-/* .link-button{
-    border-radius: 25px;
-  background: #f44336;
-  padding: 20px;
-  width: 100px;
-  height: 25px;
+.shop-button {
+
+  color: white;
+  margin: 1em;
+  width: 8em;
+  padding: 0.25rem 2rem;
+  border: none;
+  font-size: 18pt;
+  border-radius: 1em;
+  font-weight: 900;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 16px rgba(69, 69, 69, 0.594);
 }
-
-.link-button:link, .link-button:visited {
-    background-color: #f44336;
-    color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-  }
-  
-  .link-button:hover, .link-button:active {
-    background-color: red;
-  } */
-
-  
