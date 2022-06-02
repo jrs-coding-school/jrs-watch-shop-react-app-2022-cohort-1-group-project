@@ -1,0 +1,29 @@
+.past-orders-root {
+  background-color: rgba(255, 255, 255);
+  backdrop-filter: blur(2px);
+}
+
+.past-orders-root table {
+  table-layout: auto;
+  max-width: 1000px;
+  margin: auto;
+  border: solid black 1px;
+  border-collapse: collapse;
+}
+
+.past-orders-root td {
+    padding: 2px 1.5rem;
+}
+
+.past-orders-root td:not(td:first-child)
+ {
+    text-align: right;
+}
+
+.past-orders-root tr:nth-child(even) {
+    background-color: #ffffff;
+}
+.past-orders-root tr:nth-child(odd) {
+    background-color: #eaeaea;
+
+}

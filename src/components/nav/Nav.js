@@ -11,42 +11,43 @@ import { useLocalStorage } from '../../services/localStorage.service';
 
 export default function Nav() {
 
-  const http = useApi();
-  const navigate = useNavigate();
-  const { userId } = useParams();
-  const ls = useLocalStorage();
-  const user = ls.getUser();
+    const http = useApi();
+    const navigate = useNavigate();
+    const { userId } = useParams();
+    const ls = useLocalStorage();
+    const user = ls.getUser();
 
-  const loginButton = (
-    <button className='loginButton' onClick={() => {
-      navigate('/login')
-    }}>
-        Log In
-    </button>
-)
+    const loginButton = (
+        <button className='loginButton' onClick={() => {
+            navigate('/login')
+        }}>
+            Log In
+        </button>
+    )
 
-function onLogoutClicked() {
-  ls.removeUser()
-  navigate('/')
-}
-const logoutButton = (
-  <button className='logoutButton' onClick={onLogoutClicked}>
-        Log out
-    </button>
-)
 
-const signUpButton = (
-  <button className='loginButton' onClick={() => {
-      navigate('/signup')
-  }}>
-     Sign up 
-  </button>
-)
+    function onLogoutClicked() {
+        ls.removeUser()
+        navigate('/')
+    }
+    const logoutButton = (
+        <button className='logoutButton' onClick={onLogoutClicked}>
+            Log out
+        </button>
+    )
+
+    const signUpButton = (
+        <button className='loginButton' onClick={() => {
+            navigate('/signup')
+        }}>
+            Sign up
+        </button>
+    )
 
 
     return (
 
-        
+
 
         <nav>
 
@@ -67,6 +68,11 @@ const signUpButton = (
                         Products
                     </div>
                 </Link>
+                <Link to="/transactions">
+                    <div className='past-orders'>
+                        Past Orders
+                    </div>
+                </Link>
 
 
 
@@ -75,21 +81,20 @@ const signUpButton = (
                 <Search />
             </div>
             <div className='nav-bar-right'>
-        {user ? '' : signUpButton }
+                {user ? '' : signUpButton}
 
-        {user ? logoutButton : loginButton }
+                {user ? logoutButton : loginButton}
 
-      </div>
+            </div>
 
-                <Link to="cart">
-                    <div className="checkout">
-                        <FontAwesomeIcon icon={faShoppingCart} />
-                    </div>
-                </Link>
-           
-        
+            <Link to="cart">
+                <div className="checkout">
+                    <FontAwesomeIcon icon={faShoppingCart} />
+                </div>
+            </Link>
+
+
         </nav>
-        
-        )
-      }
-      
+
+    )
+}

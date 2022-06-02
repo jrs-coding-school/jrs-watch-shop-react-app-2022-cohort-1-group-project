@@ -12,11 +12,11 @@ import Nav from './components/nav/Nav';
 import LogInPage from './components/login/LogInPage';
 import ProductPage from './components/ProductPage';
 import SignUpPage from './components/login/SignUpPage';
-import OrderCheckOutPage from './components/OrderCheckOutPage';
 import OrderConfirmPage from './components/OrderConfirmPage';
 import { ToastProvider } from './services/toasts/toastService'
 import ShoppingCart from './components/ShoppingCart'
 import Homepage from './components/Homepage';
+import PastOrders from './components/PastOrders';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -32,6 +32,7 @@ root.render(
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/cart" element={<ShoppingCart />} />
           <Route path="/orderconfirm" element={<OrderConfirmPage />} />
+          <Route path="/transactions" element={<PastOrders />} />
           <Route path="*" element={<div>404 - That Page Does Not Exist</div>} />
         </Routes>
       </BrowserRouter>
