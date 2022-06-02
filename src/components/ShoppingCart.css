@@ -1,6 +1,6 @@
 .shopping-cart-root {
     background-color: #c5c0c0;
-    
+
 }
 
 .shopping-cart-root .cart-header {
@@ -33,8 +33,6 @@
     padding: 1em;
     text-align: center;
     background-color: white;
-    
-
 
 }
 
@@ -62,13 +60,12 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: fit-content;
-    width: 20em;
+    width: 30em;
     padding: 1em;
     background-color: white;
-    
-
 }
+
+
 
 /* quanitity buttons style */
 .shopping-cart-root .item-row-container button {
@@ -93,6 +90,15 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+.shopping-cart-root .item-row-container .item-name {
+    width: 10em;
+}
+
+.shopping-cart-root .item-row-container .item-price {
+    text-align: right;
+    width: 5em;
 }
 
 .shopping-cart-root .cart-container .shopping-cart-items {
