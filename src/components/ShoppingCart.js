@@ -12,7 +12,6 @@ export default function ShoppingCart() {
     const navigate = useNavigate();
 
     const [cartItems, setCartItems] = useState([]);
-    const [quantity, setQuantity] = useState(1);
 
     let user = ls.getUser();
 
@@ -23,10 +22,8 @@ export default function ShoppingCart() {
 
     function getUserShoppingCart() {
         if (user) {
-            console.log('logged in', user);
             http.getUserShoppingCartById(user.id)
                 .then((response) => {
-                    console.log(response)
                     setCartItems(response?.data?.watches);
                 })
                 .catch(() => {
@@ -37,27 +34,57 @@ export default function ShoppingCart() {
         }
     }
 
-    function onDecrease() {
-        http.onQtyDecrease()
-            .then((response) => {
-                console.log(response)
-                setQuantity(response?.data?.quantity)
-            })
-            .catch(() => {
-                console.log("error reducing quantity")
-            })
+    function onDecrease(itemId, quantity) {
+        if (quantity <= 1) {
+            // maybe POP UP: 'Are you sure?'
+            http.deleteCartItem(itemId, user.id)
+                .then((response) => {
 
+                    setCartItems(cartItems.filter(
+                        (item) => item.id !== itemId));
+                }) 
+                .catch(() => {
+                    console.error("error deleting item")
+                })
+        } else {
+            http.decreaseQtyInCart(itemId, user.id)
+                .then((response) => {
+                    setCartItems(cartItems.map(item => {
+                        if (item.id == itemId) {
+                            return {
+                                ...item,
+                                quantity: item.quantity - 1
+                            }
+                        } else {
+                            return item;
+                        }
+                    }));
+                })
+                .catch(() => {
+                    console.error("error reducing quantity!")
+                })
+        }
     }
 
-    function onIncrease() {
-        // http.onQtyIncrease()
-        //     .then(() => {
-        //         // console.log(response)
-        //         setQuantity(response?.data?.quantity)
-        //     })
-        //     .catch(() => {
-        //         console.log("error increasing quantity")
-        //     })
+    function onIncrease(itemId) {
+        http.increaseQtyInCart(itemId, user.id)
+            .then((response) => {
+              
+                setCartItems(cartItems.map(item => {
+                    if (item.id == itemId) {
+                        return {
+                            ...item,
+                            quantity: item.quantity + 1
+                        }
+                    } else {
+                        return item;
+                    }
+                }));
+            })
+            .catch(() => {
+                console.error("error increasing quantity!")
+            })
+
     }
 
     function calculateTotalPrice(cartItems) {
@@ -74,19 +101,15 @@ export default function ShoppingCart() {
     function handleCheckout() {
         http.createTransaction(user.id, grandTotal, cartItems)
             .then(res => {
-                console.log(res);
                 const cartItems = res.data;
-                console.log('cartItems purchased successfully');
-                console.log(cartItems);
-                navigate('/orderconfirm')
+               
             }).catch(err => {
-                console.log(err);
+                console.error(err);
             })
 
     }
 
     useEffect(() => {
-        // setCartItems()
         getUserShoppingCart();
     }, []);
 
@@ -106,6 +129,7 @@ export default function ShoppingCart() {
                 <div className="shopping-cart-cartItems">
                     {cartItems.map((item) => (
                         <CartItem key={item?.id}
+                            id={item?.id}
                             price={item?.price}
                             quantity={item?.quantity}
                             name={item?.name}
@@ -135,7 +159,7 @@ export default function ShoppingCart() {
 
                         </div>
                         <div>
-                            <button type="submit" onClick={handleCheckout}
+                            <button type="button" onClick={handleCheckout}
                                 className="checkout-btn"
                             >
                                 Checkout
@@ -153,18 +177,18 @@ function CartItem({ id, name, price, quantity, onIncrease, onDecrease }) {
     return (
         <div key={id} className="item-row-container">
 
-            <div>
+            <div className="item-name">
                 <div>{name}</div>
                 <div>${price?.toFixed(2)}</div>
             </div>
             <div className="quantity-btn">
                 <button
-                    onClick={() => { onIncrease() }}
+                    onClick={() => { onIncrease(id) }}
                     className="add">
                     +
                 </button>
                 <button
-                    onClick={() => { onDecrease() }}
+                    onClick={() => { onDecrease(id, quantity) }}
                     className="remove">
                     -
                 </button>
@@ -172,7 +196,7 @@ function CartItem({ id, name, price, quantity, onIncrease, onDecrease }) {
             <div className="item-quantity">
                 <span>qty</span>  {quantity}
             </div>
-            <div>
+            <div className="item-price">
                 ${price * quantity?.toFixed(2)}
             </div>
         </div>

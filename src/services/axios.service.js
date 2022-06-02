@@ -72,6 +72,19 @@ function createTransaction(userId, total, products, quantity) {
     return axios.post(`${URL}/transactions`, {userId, total, products, quantity});
 }
 
+function decreaseQtyInCart(itemId, userId ) {
+    return axios.put(`${URL}/carts/decrease`, {itemId, userId})
+}
+
+function increaseQtyInCart(itemId, userId) {
+    return axios.put(`${URL}/carts/increase`, {itemId, userId})
+}
+
+function deleteCartItem(itemId, userId) {
+    return axios.delete(`${URL}/carts/${userId}/${itemId}`);
+}
+
+
 function getWatchesByQuery(params) {
 
     const queryString = new URLSearchParams(params).toString();
@@ -97,7 +110,10 @@ const api = {
     deleteUserById,
     getWatchesByQuery,
     getItemsPurchasedByTransactionId,
-    getTransactionById
+    getTransactionById,
+    decreaseQtyInCart,
+    increaseQtyInCart,
+    deleteCartItem
 }
 
 function useApi() {
