@@ -21,7 +21,6 @@ export default function OrderConfirmPage() {
                 console.log("you're in the order confirm page server response ")
                 console.log(response)
                 setItems(response.data.items);
-                // console.log(response.data.response[0]);
             })
             .catch(() => {
                 console.log("error getting all")
@@ -32,6 +31,7 @@ export default function OrderConfirmPage() {
         http.getTransactionById(transactionId)
             .then((response) => {
                 console.log(response)
+                response.data.transaction.date = new Date(response.data.transaction.date);
                 setOrder(response.data.transaction);
             })
             .catch(() => {
@@ -44,6 +44,10 @@ export default function OrderConfirmPage() {
         getTransactionData();
         getItemsPurchasedByTransactionId();
     }, []);
+
+    useEffect(() => {
+        console.log(order)
+    }, [order])
 
     return (
         <div className="order-root">
@@ -68,13 +72,21 @@ export default function OrderConfirmPage() {
                             : <b>Your order was not succesful, please try again</b>}
 
                     </div>
+                    <div className="orderDate-display">
+                        {order.date ? order.date.toLocaleString(undefined, {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        }) : ''}
+                    </div>
                 </div>
 
                 {items.map((item) => (
-                    <div className="order-detail-root " key={item.id}>
+                    <div className="order-detail-root "
+                        key={item.id}>
                         <div className="order-display">
-                            <div className="product-image">
-                                <img className='image' src={item.image} />
+                            <div className="product-image-frame">
+                                <img src={item.image} />
 
                             </div>
 
@@ -82,9 +94,7 @@ export default function OrderConfirmPage() {
                                 {/* <div className="orderId-display">
                                     {transactionId == order.id ? `Order Number: ${order.id}` : ''}
                                 </div> */}
-                                <div className="orderDate-display">
-                                    {transactionId == order.id && order.date ? `Date: ${order.date}` : ''}
-                                </div>
+
                                 {/* <div className="order-display-id"> Product ID: {item.id}</div> */}
                                 <div className="order-display-brand"> Brand:  {item.brand} </div>
                                 <div className="order-display-name"> Name: {item.name} </div>

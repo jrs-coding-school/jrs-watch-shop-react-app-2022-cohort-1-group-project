@@ -1,7 +1,7 @@
 .order-root {
     height: 100vh;
     width: 100vw;
-    color: red;
+
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(2px);
 
@@ -27,21 +27,19 @@
     margin: 1em;
 }
 
-.product-image {
+.product-image-frame {
 
-    width: 200px;
-    height: 200px;
-    border: solid blaCK;
-    padding: 2em;
+    height: 8rem;
+    width: 8rem;
+    border: solid black;
     text-align: center;
     margin: auto;
     display: block;
 }
 
-.order-detail-root .image {
-
-    max-width: 150px;
-    max-height: 150px;
+.order-detail-root img {
+    height: 100%;
+    margin: auto;
 }
 
 .order-data-root {
