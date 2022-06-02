@@ -11,53 +11,53 @@ import { useLocalStorage } from '../../services/localStorage.service';
 
 export default function Nav() {
 
-  const http = useApi();
-  const navigate = useNavigate();
-  const { userId } = useParams();
-  const ls = useLocalStorage();
-  const user = ls.getUser();
+    const http = useApi();
+    const navigate = useNavigate();
+    const { userId } = useParams();
+    const ls = useLocalStorage();
+    const user = ls.getUser();
 
-  const loginButton = (
-    <button className='loginButton' onClick={() => {
-      navigate('/login')
-    }}>
-        Log In
-    </button>
-)
+    const loginButton = (
+        <button className='loginButton' onClick={() => {
+            navigate('/login')
+        }}>
+            Log In
+        </button>
+    )
 
-function onLogoutClicked() {
-  ls.removeUser()
-  navigate('/')
-}
-const logoutButton = (
-  <button className='logoutButton' onClick={onLogoutClicked}>
-        Log out
-    </button>
-)
+    function onLogoutClicked() {
+        ls.removeUser()
+        navigate('/')
+    }
+    const logoutButton = (
+        <button className='logoutButton' onClick={onLogoutClicked}>
+            Log out
+        </button>
+    )
 
-const signUpButton = (
-  <button className='loginButton' onClick={() => {
-      navigate('/signup')
-  }}>
-     Sign up 
-  </button>
-)
+    const signUpButton = (
+        <button className='loginButton' onClick={() => {
+            navigate('/signup')
+        }}>
+            Sign up
+        </button>
+    )
 
 
     return (
 
-        
+
 
         <nav>
 
 
             <div className="flex left">
-                <Link to="burger">
+                {/* <Link to="burger">
                     <div className="burger">
                         &#9776;
                     </div>
-                </Link>
-                <Link to="/home">
+                </Link> */}
+                <Link to="/">
                     <div className="Home">
                         Home
                     </div>
@@ -75,21 +75,20 @@ const signUpButton = (
                 <Search />
             </div>
             <div className='nav-bar-right'>
-        {user ? '' : signUpButton }
+                {user ? '' : signUpButton}
 
-        {user ? logoutButton : loginButton }
+                {user ? logoutButton : loginButton}
 
-      </div>
+            </div>
 
-                <Link to="cart">
-                    <div className="checkout">
-                        <FontAwesomeIcon icon={faShoppingCart} />
-                    </div>
-                </Link>
-           
-        
+            <Link to="cart">
+                <div className="checkout">
+                    <FontAwesomeIcon icon={faShoppingCart} />
+                </div>
+            </Link>
+
+
         </nav>
-        
-        )
-      }
-      
+
+    )
+}
