@@ -9,7 +9,7 @@ export default function Search() {
         <form className='search-root' >
             {/* html deafult form behavior is intended */}
             <input type="text" placeholder="Search & Shop"
-                name="search" />
+                name="search" className="search-input"/>
             <button type="submit">
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
             </button>

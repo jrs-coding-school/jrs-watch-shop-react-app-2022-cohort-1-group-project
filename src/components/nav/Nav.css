@@ -15,7 +15,14 @@ nav {
   height: 2em;
   position: sticky;
   top: 0;
+  line-height: 2em;
 }
+.nav-bar-right-root {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+}
+
 
 nav .left {
   font-size: 1.25em;
