@@ -29,23 +29,21 @@ export default function ProductCard({ id, name, price, brand, color, style, desc
     }
 
     return (
-        <div>
-            <div className='product-card'>
+        <div className='product-card'>
 
-                <img className='image' src={image} />
-                <div className='product-info'>
-                    <h4 className='product-name'>{name}</h4>
-                    <h4 className='brand'>{brand}</h4>
-                    <h4 className='price'>${price}</h4>
-                    {/* <h4 className='description'>{description}</h4> */}
+            <img className='image' src={image} />
+            <div className='product-info'>
+                <h4 className='product-name'>{name}</h4>
+                <h4 className='brand'>{brand}</h4>
+                <h4 className='price'>${price}</h4>
+                {/* <h4 className='description'>{description}</h4> */}
 
-                    <button
-                        onClick={user ? addItemToCart : requestUserLogin}
-                        className='add-button'
-                    >
-                        <span> Add to Cart</span>
-                    </button>
-                </div>
+                <button
+                    onClick={user ? addItemToCart : requestUserLogin}
+                    className='add-button'
+                >
+                    <span> Add to Cart</span>
+                </button>
             </div>
         </div>
     )
