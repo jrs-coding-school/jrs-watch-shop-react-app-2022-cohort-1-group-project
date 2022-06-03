@@ -1,22 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 nav {
-  padding: 1rem;
   font-family: "Roboto", sans-serif;
   background-color: rgb(72, 22, 22);
   color: white;
-  font-size: 1em;
+
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-grow: 100;
+  justify-content: space-around;
   transition: 0.3s;
-  height: 2em;
+  height: 3em;
+  padding-top: 1em;
+  margin: auto;
   position: sticky;
-  top: 0;
   line-height: 2em;
 }
+
 .nav-bar-right-root {
   display: flex;
   flex-direction: row;
@@ -24,21 +23,13 @@ nav {
 }
 
 
-nav .left {
+nav .left,
+.right {
   font-size: 1.25em;
-  margin-left: 1em;
-
-}
-
-nav .right {
-  font-size: 1.25em;
-  margin-right: 1em;
-
 }
 
 nav.right>login {
   font-size: .5em;
-  margin-right: 1em;
 
 }
 
@@ -50,54 +41,67 @@ nav .flex {
 
 /* links */
 nav a {
-  
   color: inherit;
   text-decoration: unset;
   margin-left: 0.25rem;
-  /* height: */
-
+  height: fit-content;
 }
 
 /* links hovered */
 nav a:hover {
-  background-color: #f0f2f4;
-  color: black;
+  text-decoration: underline;
 }
 
 /* currently viewed link */
 nav a:active {
-  background-color: yellow
-}
-
-.nav-bar-right {
-  /* margin-left: 35em; */
-
+  background-color: rgb(72, 22, 22);
+  color: white;
+  transform: translateY(2px);
 }
 
 .loginButton {
   border-radius: 10px;
-
   cursor: pointer;
 }
 
 .loginButton:hover {
   border-radius: 10px;
   cursor: pointer;
-  background-color: rgb(3, 54, 3);
-  color: #f0f2f4;
+  background-color: white;
+  color: rgb(72, 22, 22);
 }
 
 .logoutButton {
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   border: none;
-  background-color: white;
-  color: rgb(72, 22, 22);
+  background-color: rgb(72, 22, 22);
+  color: white;
   width: 5em;
-  height: 1.5em;
+  height: 1.8em;
+  font-size: larger;
 }
 
 .logoutButton:hover {
-  background-color: #f0f2f4;
-  color: rgb(72, 22, 22);
+  background-color: rgb(72, 22, 22);
+  color: white;
+  text-decoration: underline;
+}
+
+.checkout {
+  background-color: rgb(72, 22, 22);
+  color: white;
+  width: 2em;
+}
+
+.checkout:hover {
+  transform: translateY(2px);
+}
+
+.checkout,
+.home,
+.products,
+.past-orders {
+  border: solid rgb(72, 22, 22) 1px;
+ 
 }

@@ -47,12 +47,12 @@ export default function Nav() {
         <nav>
             <div className="flex left">
                 <Link to="/">
-                    <div className="Home">
+                    <div className="home">
                         Home
                     </div>
                 </Link>
                 <Link to="/products">
-                    <div className="Products">
+                    <div className="products">
                         Products
                     </div>
                 </Link>
@@ -61,10 +61,9 @@ export default function Nav() {
                         Past Orders
                     </div>
                 </Link>
-
-
-
             </div>
+
+
             <div className="search-container">
                 <Search />
             </div>
@@ -76,7 +75,7 @@ export default function Nav() {
                 </div>
                 <Link to="cart">
                     <div className="checkout">
-                        <FontAwesomeIcon icon={faShoppingCart} size="lg"/>
+                        <FontAwesomeIcon icon={faShoppingCart} size="lg" />
                     </div>
                 </Link>
             </div>
