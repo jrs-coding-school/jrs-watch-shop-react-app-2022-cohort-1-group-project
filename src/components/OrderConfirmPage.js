@@ -55,32 +55,31 @@ export default function OrderConfirmPage() {
             <div className='order-page-content'>
                 <div className="order-status-root">
                     <div className="order-status1">
-                        <b>
-                            {transactionId == order.id
-                                ? `Thank you for shopping with us ${console.log(order.id)}`
-                                : `Order '${transactionId}' Doesnt exist`}
 
-                        </b>
+                        {transactionId == order.id
+                            ? `Thank you for shopping with us!!!`
+                            : `Order '${transactionId}' Doesnt exist`}
+
+
 
                     </div>
 
                     <div className="order-status2">
 
                         {order.id
-                            ? <b>** Your Order was successful ** <br>
-                            </br>  Order Number: {order.id}</b>
+                            ? <b>Order Number: {order.id}</b>
                             : <b>Your order was not succesful, please try again</b>}
 
                     </div>
-                    <div className="orderDate-display">
+                    <div className="orderDate-display"> Date:&nbsp;
                         {order.date ? order.date.toLocaleString(undefined, {
                             year: 'numeric',
                             month: 'long',
                             day: 'numeric'
                         }) : ''}
+
                     </div>
-                    <p>${order?.total?.toFixed(2)}</p>
-                    <p>`${order?.color}`</p>
+                    <div className="grand-total">Grand Total: ${order?.total?.toFixed(2)}</div>
 
                 </div>
 
