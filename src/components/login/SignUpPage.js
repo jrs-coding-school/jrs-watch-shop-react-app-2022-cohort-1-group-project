@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useApi } from '../../services/axios.service'
+import { useLocalStorage } from '../../services/localStorage.service';
 import './SignUpPage.css'
 
 export default function SignUpPage() {
 
     const navigate = useNavigate();
     const http = useApi();
+    const localStorageService = useLocalStorage();
 
     function attemptSignUp(user) {
         http.createNewUser(user)
             .then(res => {
                 const user = res.data.user;
-                // localStorageService.saveUser(user);
+                localStorageService.saveUser(user);
                 navigate(`/`);
             }).catch(err => {
                 console.error(err);
@@ -20,12 +22,12 @@ export default function SignUpPage() {
     }
 
     return (
-        <div className="login">
+        <div className="login-button-signup">
             <br />
             <br />
             <SignUpForm onSubmit={attemptSignUp} />
             <hr />
-            <Link to="/login">
+            <Link to="/">
                 <button type="button">Log In</button>
             </Link>
         </div>
@@ -59,27 +61,30 @@ function SignUpForm({ onSubmit }) {
 
     return (
         
+        
         <form onSubmit={handleSubmit}>
-            <div className="email">
-                {isEmailTaken && <div className="error-message">* Email is already taken *</div>}
-                <label >Email:</label>
+            <div>
+                {isEmailTaken && <div className="error-message"></div>}
+                <label className='email-label'>Email:</label>
                 <input type="text"
                     className={isEmailTaken ? 'email-taken' : ''}
                     name="email"
                     required
                     value={user.email}
                     onChange={handleChange} />
-            </div>
+            <br />
 
-            <label>Password:</label>
+            <label >Password:</label>
             <input type="password"
                 name="password"
                 value={user.password}
                 onChange={handleChange} />
-            <br />
+                </div>
 
-            <button type="submit"
+            <button className='submit-button' type="submit"
                 disabled={!user.email || !user.password}>Sign Up</button>
         </form>
+        
     )
+    
 }

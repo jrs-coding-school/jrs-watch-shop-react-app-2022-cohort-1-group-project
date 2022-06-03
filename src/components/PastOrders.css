@@ -1,6 +1,10 @@
 .past-orders-root {
-  background-color: rgba(255, 255, 255);
+  background-color: rgb(195, 184, 184);
   backdrop-filter: blur(2px);
+}
+
+.past-orders-root th{
+  text-decoration: underline;
 }
 
 .past-orders-root table {
