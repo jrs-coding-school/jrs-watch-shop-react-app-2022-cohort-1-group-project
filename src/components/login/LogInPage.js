@@ -9,7 +9,7 @@ export default function LogInPage() {
 
     return (
         <div className="login">
-            <br />
+            <h2 className='header'>Time to Log In!</h2>
             <br />
             <LogInForm />
             <hr />
