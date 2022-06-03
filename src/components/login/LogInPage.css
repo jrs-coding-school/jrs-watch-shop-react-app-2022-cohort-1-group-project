@@ -1,36 +1,118 @@
-.login-form {
-    border: solid black;
-    width: fit-content;
-    margin: auto;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    background-color: lightgray;
-    
+.header {
+  color: white;
+  text-align: center;
+  background-color: rgb(72, 22, 22);
+  
 }
 
-.login-form label {
-    display: inline-block;
-    width: 6em;
-    text-align: right;
-    padding-right: 0.5em;
+.login {
+  font-size: 20pt;
+  background-color: darkgrey;
+  width: 30vw;
+  border-bottom-left-radius: 5%;
+  border-bottom-right-radius: 5%;
+  margin: auto;
+  
 }
 
-.login-form div {
-    margin-bottom: 0.4rem;
+.login form {
+  height: 10em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.login-form h3 {
-    margin: 0 0 1rem;
+.login label {
+  display: inline-block;
+  width: 6em;
+  text-align: center;
+  margin-right: 0.5rem;
 }
 
-.login-form button {
-    border: none;
-    font: inherit;
-    padding: 0.25rem 1rem;
-    border-radius: 5px;
+.login input {
+  font: inherit;
+  margin-bottom: 0.5em;
 }
 
-.label  {
-    color: whitesmoke;
-    background-color: rgb(72, 22, 22);
+.login button {
+  font: inherit;
+  font-weight: 900;
+  border: none;
+  width: 8rem;
+  padding: 0.25rem;
+  border-radius: 4px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  background-color: rgb(72, 22, 22);
+}
+
+.login button:hover {
+  filter: brightness(90%);
+}
+
+.login button[type="submit"] {
+  background-color: rgb(72, 22, 22);
+}
+
+.login button[type="button"] {
+  background-color: rgb(151, 53, 11);
+}
+
+.login .email-taken {
+  outline-color: red;
+}
+
+.login .email {
+  position: relative;
+}
+
+.login .error-message {
+  color: red;
+  font-size: 12pt;
+  position: absolute;
+  right: 1em;
+  bottom: 100%;
+}
+
+.login .shake {
+  outline-color: black;
+  outline-width: 1px;
+  outline-style: solid;
+
+  animation-name: shake;
+  animation-duration: var(--animationTime);
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0, 0) rotate(0);
+    outline-color: black;
+  }
+  20% {
+    transform: translate(-3rem, 0) rotate(-3deg);
+    outline-color: red;
+  }
+  35% {
+    transform: translate(3rem, 0) rotate(3deg);
+    outline-color: red;
+  }
+  50% {
+    transform: translate(-3rem, 0) rotate(-3deg);
+    outline-color: red;
+  }
+  65% {
+    transform: translate(3rem, 0) rotate(3deg);
+    outline-color: red;
+  }
+  80% {
+    transform: translate(-3rem, 0) rotate(-3deg);
+    outline-color: red;
+  }
+  100% {
+    transform: translate(0, 0) rotate(0);
+    outline-color: black;
+  }
 }
