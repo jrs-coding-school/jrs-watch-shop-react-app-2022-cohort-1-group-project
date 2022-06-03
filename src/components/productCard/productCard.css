@@ -1,21 +1,21 @@
 .product-card {
-  /* border: solid red 1px; */
-  padding: 2%;
-  margin: 5px;
+  padding: 1em;
   max-height: 100%;
   background-color: white;
-  /* gap: 3px; */
 
   overflow: hidden;
   justify-content: space-evenly;
 
-  margin: auto;
-
-  box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.2);
   
+  flex: 1 1 200px;
+
   
   text-align: center;
   font-family: arial;
+}
+
+.product-card h4 {
+  margin: 2px 0;
 }
 
 .product-info {
@@ -38,8 +38,7 @@
 }
 
 .image {
-  width: 18em;
-  height: 18em;
+  height: 8em;
   overflow: hidden;
 
   
@@ -59,8 +58,7 @@
   color: #FFFFFF;
   text-align: center;
   font-size: 20px;
-  padding: 20px;
-  width: 200px;
+  padding: 0.5rem 1rem;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;

@@ -10,14 +10,14 @@ export default function Homepage() {
 
   return (
     <div className="home-root">
-      {/* <a className='link-button' href="http://localhost:3000">Our Products</a> */}
-      <div className='shop-welcome'> Welcome Time Keepers!
+      <div className="shop-welcome">
+        Welcome Time Keepers!
       </div>
       <div>
-        <button className='shop-button' onClick={() => {
+        <button className="shop-button" onClick={() => {
           navigate('/products')
         }}>
-          Shop
+          Shop Here
         </button>
       </div>
 

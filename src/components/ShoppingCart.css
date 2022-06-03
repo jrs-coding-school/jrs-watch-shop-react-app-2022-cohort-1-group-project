@@ -1,5 +1,5 @@
 .shopping-cart-root {
-    background-color: #c5c0c0;
+    background-color: #f0f2f4;
 
 }
 
@@ -21,7 +21,7 @@
 }
 
 .shopping-cart-root .cart-summary-container {
-    position: sticky;
+
     display: flex;
     flex-direction: column;
     gap: 1.5em;
@@ -101,18 +101,9 @@
     width: 5em;
 }
 
-.shopping-cart-root .cart-container .shopping-cart-items {
-    border: solid #c5c0c0 .5px;
-    border-radius: 4px;
-
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 1em;
-    height: fit-content;
-    width: 25em;
-
+.shopping-cart-root .shopping-cart-items {
+  max-height: 70vh;
+    overflow-y: auto;
 }
 
 .shopping-cart-root .cart-summary-container>div {

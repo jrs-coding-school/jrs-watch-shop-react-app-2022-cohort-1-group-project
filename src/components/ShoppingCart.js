@@ -93,7 +93,6 @@ export default function ShoppingCart() {
         for (let i = 0; i < cartItems.length; i++) {
             sum += cartItems[i]?.price * cartItems[i]?.quantity;
         }
-
         return sum;
     }
 
@@ -105,7 +104,6 @@ export default function ShoppingCart() {
             }).catch(err => {
                 console.error(err);
             })
-
     }
 
     useEffect(() => {
@@ -124,7 +122,7 @@ export default function ShoppingCart() {
             </div>
             <div className="cart-container">
 
-                <div className="shopping-cart-cartItems">
+                <div className="shopping-cart-items">
                     {cartItems.map((item) => (
                         <CartItem key={item?.id}
                             id={item?.id}
@@ -136,6 +134,7 @@ export default function ShoppingCart() {
                         />
                     ))}
                 </div>
+                
                 {cartItems?.length !== 0 && (
                     <div className="cart-summary-container">
                         <h4 className="summary-header">Order Summary</h4>

@@ -1,14 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-body {
-  margin: 0;
-  padding: 0;
-  /* background-image: url("https://i.pinimg.com/originals/78/c2/5b/78c25b25bbb1bdd2aee59f187240252b.jpg"); */
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: .9;
-}
-
 nav {
   padding: 1rem;
   font-family: "Roboto", sans-serif;
@@ -16,10 +7,22 @@ nav {
   color: white;
   font-size: 1em;
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   transition: 0.3s;
+  height: 2em;
+  position: sticky;
+  top: 0;
+  line-height: 2em;
 }
+.nav-bar-right-root {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+}
+
 
 nav .left {
   font-size: 1.25em;
@@ -39,8 +42,6 @@ nav.right>login {
 
 }
 
-
-
 nav .flex {
   display: flex;
   flex-direction: row;
@@ -49,15 +50,17 @@ nav .flex {
 
 /* links */
 nav a {
+  
   color: inherit;
   text-decoration: unset;
   margin-left: 0.25rem;
+  /* height: */
 
 }
 
 /* links hovered */
 nav a:hover {
-  background-color: white;
+  background-color: #f0f2f4;
   color: black;
 }
 
@@ -67,20 +70,34 @@ nav a:active {
 }
 
 .nav-bar-right {
-  margin-left: 35em;
+  /* margin-left: 35em; */
 
 }
 
 .loginButton {
   border-radius: 10px;
- 
+
   cursor: pointer;
+}
+
+.loginButton:hover {
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: rgb(3, 54, 3);
+  color: #f0f2f4;
 }
 
 .logoutButton {
-  /* border-radius: 50%;
-  height: 50px; */
+  border-radius: 10px;
   cursor: pointer;
-  
+  border: none;
+  background-color: white;
+  color: rgb(72, 22, 22);
+  width: 5em;
+  height: 1.5em;
 }
 
+.logoutButton:hover {
+  background-color: #f0f2f4;
+  color: rgb(72, 22, 22);
+}
