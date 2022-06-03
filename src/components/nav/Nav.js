@@ -43,20 +43,9 @@ export default function Nav() {
         </button>
     )
 
-
     return (
-
-
-
         <nav>
-
-
             <div className="flex left">
-                {/* <Link to="burger">
-                    <div className="burger">
-                        &#9776;
-                    </div>
-                </Link> */}
                 <Link to="/">
                     <div className="Home">
                         Home
@@ -83,16 +72,12 @@ export default function Nav() {
                 {user ? '' : signUpButton}
 
                 {user ? logoutButton : loginButton}
-
             </div>
-
             <Link to="cart">
                 <div className="checkout">
                     <FontAwesomeIcon icon={faShoppingCart} />
                 </div>
             </Link>
-
-
         </nav>
 
     )
