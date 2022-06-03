@@ -1,11 +1,10 @@
 import { useApi } from '../services/axios.service'
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './ShoppingCart.css'
 import { useEffect, useState } from 'react';
 import { useLocalStorage } from '../services/localStorage.service';
 
 export default function ShoppingCart() {
-
 
     const http = useApi();
     const ls = useLocalStorage();
@@ -42,7 +41,7 @@ export default function ShoppingCart() {
 
                     setCartItems(cartItems.filter(
                         (item) => item.id !== itemId));
-                }) 
+                })
                 .catch(() => {
                     console.error("error deleting item")
                 })
@@ -69,7 +68,7 @@ export default function ShoppingCart() {
     function onIncrease(itemId) {
         http.increaseQtyInCart(itemId, user.id)
             .then((response) => {
-              
+
                 setCartItems(cartItems.map(item => {
                     if (item.id == itemId) {
                         return {
@@ -100,8 +99,8 @@ export default function ShoppingCart() {
     function handleCheckout() {
         http.createTransaction(user.id, grandTotal, cartItems)
             .then(res => {
-                const cartItems = res.data;
-               
+
+                navigate(`/orderconfirm/${res.data.transactionId}`);
             }).catch(err => {
                 console.error(err);
             })
@@ -122,7 +121,6 @@ export default function ShoppingCart() {
                     </div>}
             </div>
             <div className="cart-container">
-
 
                 <div className="shopping-cart-cartItems">
                     {cartItems.map((item) => (
@@ -156,13 +154,14 @@ export default function ShoppingCart() {
                             <h4>${grandTotal?.toFixed(2)}</h4>
 
                         </div>
-                        <div>
-                            <button type="button" onClick={handleCheckout}
-                                className="checkout-btn"
-                            >
-                                Checkout
-                            </button>
-                        </div>
+
+                        <button type="button"
+                            onClick={handleCheckout}
+                            className="checkout-btn"
+                        >
+                            Checkout
+                        </button>
+
                     </div>
                 )}
             </div>

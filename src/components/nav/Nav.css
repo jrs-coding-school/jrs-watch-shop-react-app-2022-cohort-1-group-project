@@ -1,14 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-body {
-  margin: 0;
-  padding: 0;
-  /* background-image: url("https://i.pinimg.com/originals/78/c2/5b/78c25b25bbb1bdd2aee59f187240252b.jpg"); */
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: .9;
-}
-
 nav {
   padding: 1rem;
   font-family: "Roboto", sans-serif;
@@ -19,6 +10,9 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   transition: 0.3s;
+  
+  position: sticky;
+  top: 0;
 }
 
 nav .left {
@@ -73,14 +67,28 @@ nav a:active {
 
 .loginButton {
   border-radius: 10px;
- 
+   
   cursor: pointer;
 }
 
+.loginButton:hover{
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: rgb(3, 54, 3);
+  color: whitesmoke;
+}
+
 .logoutButton {
-  /* border-radius: 50%;
-  height: 50px; */
+ border-radius: 10px;
   cursor: pointer;
   
+  background-color: brown;
+  color: whitesmoke;
+}
+
+.logoutButton:hover {
+  
+  background-color: whitesmoke;
+  color: black;
 }
 

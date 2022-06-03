@@ -1,9 +1,7 @@
 const axios = require('axios');
 const URL = `http://localhost:8080/api`
 
-
 // product specific service functions
-
 function getItemsPurchasedByTransactionId(transactionId) {
     return axios.get(`${URL}/transactions/${transactionId}/items`);
 }
@@ -64,12 +62,12 @@ function deleteUserById(id) {
 }
 
 // cart/transaction specific service functions
-function addItemToCart(userId, item) {
-    return axios.post(`${URL}/carts`, { userId, item });
+function addItemToCart(userId, itemId, itemPrice) {
+    return axios.post(`${URL}/carts`, { userId, itemId, itemPrice });
 }
 
-function createTransaction(userId, total, products, quantity) {
-    return axios.post(`${URL}/transactions`, {userId, total, products, quantity});
+function createTransaction(userId, total, products) {
+    return axios.post(`${URL}/transactions`, { userId, total, products });
 }
 
 function decreaseQtyInCart(itemId, userId ) {
