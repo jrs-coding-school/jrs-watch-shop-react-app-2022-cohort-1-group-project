@@ -94,7 +94,6 @@ export default function ShoppingCart() {
         for (let i = 0; i < cartItems.length; i++) {
             sum += cartItems[i]?.price * cartItems[i]?.quantity;
         }
-
         return sum;
     }
 
@@ -106,7 +105,6 @@ export default function ShoppingCart() {
             }).catch(err => {
                 console.error(err);
             })
-
     }
 
     useEffect(() => {
