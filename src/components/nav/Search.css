@@ -1,0 +1,30 @@
+.search-root input {
+    background-color:  #f0f2f4;
+    border: none;
+    outline: 0;
+    height: 1.75em;
+    width: 10em;
+    border-radius: 4px;
+    padding-right: 1.25em;
+}
+
+.search-root input:hover
+{
+    background-color: white;
+}
+
+
+.search-root button {
+    left: 37.5em;
+    bottom: 1.5em;
+    cursor: pointer;
+
+    height: 1.9em;
+    margin-left: -1em;
+
+    border: none;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+ 
+    background-color: #f0f2f4;
+}

@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+nav {
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(72, 22, 22);
+  color: white;
+
+  display: flex;
+  flex-grow: 100;
+  justify-content: space-around;
+  transition: 0.3s;
+  height: 3em;
+  padding-top: 1em;
+  margin: auto;
+  position: sticky;
+  line-height: 2em;
+}
+
+.nav-bar-right-root {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+}
+
+
+nav .left,
+.right {
+  font-size: 1.25em;
+}
+
+nav.right>login {
+  font-size: .5em;
+
+}
+
+nav .flex {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+/* links */
+nav a {
+  color: inherit;
+  text-decoration: unset;
+  margin-left: 0.25rem;
+  height: fit-content;
+}
+
+/* links hovered */
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* currently viewed link */
+nav a:active {
+  background-color: rgb(72, 22, 22);
+  color: white;
+  transform: translateY(2px);
+}
+
+.loginButton {
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.loginButton:hover {
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: white;
+  color: rgb(72, 22, 22);
+}
+
+.logoutButton {
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: rgb(72, 22, 22);
+  color: white;
+  width: 5em;
+  height: 1.8em;
+  font-size: larger;
+}
+
+.logoutButton:hover {
+  background-color: rgb(72, 22, 22);
+  color: white;
+  text-decoration: underline;
+}
+
+.checkout {
+  background-color: rgb(72, 22, 22);
+  color: white;
+  width: 2em;
+}
+
+.checkout:hover {
+  transform: translateY(2px);
+}
+
+.checkout,
+.home,
+.products,
+.past-orders {
+  border: solid rgb(72, 22, 22) 1px;
+ 
+}

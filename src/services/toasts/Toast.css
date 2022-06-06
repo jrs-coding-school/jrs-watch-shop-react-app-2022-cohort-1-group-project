@@ -1,0 +1,155 @@
+.toasts-container {
+  position: fixed;
+  top: 2rem;
+  right: 0;
+  /* //this is a last resort to put elements on top of things z index */
+  z-index: 2;
+}
+
+.toast-root {
+  border: solid black 1px;
+  border-left: solid black 4px;
+
+  display: flex;
+  width: 18rem;
+  text-align: left;
+
+  color: var(--color);
+  background-color: var(--background-color);
+
+  position: relative; /* this is now the 'parent' */
+
+  border-radius: 10px;
+  margin: 1rem;
+
+  padding: 0.5em;
+
+  animation: fade-in-out 3000ms;
+}
+.toast-root.lingering {
+  animation: fade-in 0.3s;
+}
+
+.toast-root:hover {
+  box-shadow: 0 0 0 0 var(--background-color);
+}
+
+.toast-button {
+  margin: 2em 1em;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  width: 7em;
+}
+
+.toast-button.success {
+  background-color: hsl(120, 70%, 34%);
+}
+
+.toast-button.error {
+  background-color: hsl(0, 70%, 51%);
+}
+
+.toast-button.warning {
+  background-color: hsl(60, 70%, 44%);
+}
+.toast-button.info {
+  background-color: hsl(196, 70%, 52%);
+}
+
+.toast-button.custom {
+  background-color: hsl(30, 70%, 47%);
+}
+
+.toast-root .message {
+  padding-left: 1rem;
+  text-align: left;
+}
+.toast-root.success {
+  --background-color: rgb(26, 146, 26);
+}
+
+.toast-root.error {
+  --background-color: rgb(217, 42, 42);
+}
+
+.toast-root.warning {
+  --background-color: rgb(196, 196, 28);
+}
+
+.toast-root.info {
+  --background-color: rgb(31, 178, 232);
+}
+
+.toast-root .message h4 {
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+}
+
+.toast-root .x-button {
+  display: grid;
+  place-items: center;
+
+  position: absolute;
+  right: 0.5rem;
+  top: 0.25rem;
+
+  width: 1.5rem;
+  height: 1.5rem;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+  font-size: 15pt;
+
+  transition: all 0.2s;
+}
+
+.toast-root .x-button:hover {
+  background-color: black;
+  color: var(--background-color);
+}
+
+.toast-root .summary {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* These are the animation styles */
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+  }
+  7% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  98% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

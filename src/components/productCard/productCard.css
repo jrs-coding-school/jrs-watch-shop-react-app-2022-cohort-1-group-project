@@ -1,0 +1,90 @@
+.product-card {
+  padding: 1em;
+  max-height: 100%;
+  background-color: white;
+
+  overflow: hidden;
+  justify-content: space-evenly;
+
+  
+  flex: 1 1 200px;
+
+  
+  text-align: center;
+  font-family: arial;
+}
+
+.product-card h4 {
+  margin: 2px 0;
+}
+
+.product-info {
+  margin: auto;
+  width: 50%;
+ 
+  padding: 10px;
+  overflow: auto;
+  display: block;
+  
+
+  height: fit-content;
+  width: fit-content;
+  align-items: flex-end;
+  text-align: center;
+
+  
+
+  
+}
+
+.image {
+  height: 8em;
+  overflow: hidden;
+
+  
+}
+
+.product-name{
+  font-weight: bold;
+  font-size: large;
+  color: rgb(226, 113, 65);
+}
+
+.add-button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 0.5rem 1rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.add-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.add-button span:after {
+  
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.add-button:hover span {
+  padding-right: 25px;
+}
+
+.add-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
